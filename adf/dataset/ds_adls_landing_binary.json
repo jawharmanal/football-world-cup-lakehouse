@@ -1,0 +1,35 @@
+{
+	"name": "ds_adls_landing_binary",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_wc2022",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"folder_path": {
+				"type": "string",
+				"defaultValue": "statsbomb/competitions"
+			},
+			"file_name": {
+				"type": "string",
+				"defaultValue": "competitions.json"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().folder_path",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().folder_path",
+					"type": "Expression"
+				},
+				"fileSystem": "landing"
+			}
+		}
+	}
+}
