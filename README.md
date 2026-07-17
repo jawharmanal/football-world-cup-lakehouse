@@ -23,7 +23,7 @@ Les données proviennent de [StatsBomb Open Data](https://github.com/statsbomb/o
 - [x] Cadrage initial
 - [x] Activation et sécurisation de l'abonnement Azure for Students
 - [x] Validation du dataset et identification de la compétition 43 / saison 106
-- [ ] Création des ressources Azure
+- [ ] Création des ressources Azure (Resource Group et ADLS Gen2 terminés)
 - [ ] Pipeline d'ingestion Bronze
 - [ ] Transformations Silver
 - [ ] Modèle Gold
