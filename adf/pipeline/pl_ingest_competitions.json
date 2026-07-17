@@ -1,0 +1,59 @@
+{
+	"name": "pl_ingest_competitions",
+	"properties": {
+		"activities": [
+			{
+				"name": "copy_competitions_to_landing",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_http_statsbomb_binary",
+						"type": "DatasetReference",
+						"parameters": {
+							"relative_url": "competitions.json"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_adls_landing_binary",
+						"type": "DatasetReference",
+						"parameters": {
+							"folder_path": "statsbomb/competitions",
+							"file_name": "competitions.json"
+						}
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
