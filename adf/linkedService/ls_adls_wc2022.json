@@ -1,0 +1,11 @@
+{
+	"name": "ls_adls_wc2022",
+	"properties": {
+		"description": "Connexion sécurisée vers ADLS Gen2 du projet World Cup 2022",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://stwc2022jawhar.dfs.core.windows.net/"
+		}
+	}
+}
