@@ -11,6 +11,10 @@
 			"type": "string",
 			"defaultValue": "https://stwc2022jawhar.dfs.core.windows.net/"
 		},
+		"ls_http_statsbomb_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI pour le compte de stockage contenant des modèles ARM liés"
@@ -40,6 +44,9 @@
 					},
 					"ls_adls_wc2022_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_wc2022_properties_typeProperties_url')]"
+					},
+					"ls_http_statsbomb_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_statsbomb_properties_typeProperties_url')]"
 					}
 				}
 			},
