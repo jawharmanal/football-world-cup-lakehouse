@@ -1,0 +1,13 @@
+{
+	"name": "ls_http_statsbomb",
+	"properties": {
+		"description": "Connexion HTTP publique vers StatsBomb Open Data",
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
