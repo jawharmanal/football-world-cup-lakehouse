@@ -1,0 +1,15 @@
+{
+	"name": "adf-wc2022-jawhar-dev",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "06fe0d69-993c-4a37-9de0-b279c76f1fe0",
+		"tenantId": "b6e77e52-65f6-4dec-b7d9-8e45f36a536f"
+	}
+}
