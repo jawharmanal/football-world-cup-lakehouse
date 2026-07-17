@@ -262,6 +262,409 @@
 				"[concat(variables('factoryId'), '/datasets/ds_http_statsbomb_binary')]",
 				"[concat(variables('factoryId'), '/datasets/ds_adls_landing_binary')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_adls_matches_json')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_wc2022",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "matches_43_106.json",
+						"folderPath": "statsbomb/matches",
+						"fileSystem": "landing"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"match_id": {
+							"type": "integer"
+						},
+						"match_date": {
+							"type": "string"
+						},
+						"kick_off": {
+							"type": "string"
+						},
+						"competition": {
+							"type": "object",
+							"properties": {
+								"competition_id": {
+									"type": "integer"
+								},
+								"country_name": {
+									"type": "string"
+								},
+								"competition_name": {
+									"type": "string"
+								}
+							}
+						},
+						"season": {
+							"type": "object",
+							"properties": {
+								"season_id": {
+									"type": "integer"
+								},
+								"season_name": {
+									"type": "string"
+								}
+							}
+						},
+						"home_team": {
+							"type": "object",
+							"properties": {
+								"home_team_id": {
+									"type": "integer"
+								},
+								"home_team_name": {
+									"type": "string"
+								},
+								"home_team_gender": {
+									"type": "string"
+								},
+								"home_team_group": {
+									"type": "string"
+								},
+								"country": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "integer"
+										},
+										"name": {
+											"type": "string"
+										}
+									}
+								},
+								"managers": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "integer"
+											},
+											"name": {
+												"type": "string"
+											},
+											"nickname": {
+												"type": "null"
+											},
+											"dob": {
+												"type": "string"
+											},
+											"country": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "integer"
+													},
+													"name": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"away_team": {
+							"type": "object",
+							"properties": {
+								"away_team_id": {
+									"type": "integer"
+								},
+								"away_team_name": {
+									"type": "string"
+								},
+								"away_team_gender": {
+									"type": "string"
+								},
+								"away_team_group": {
+									"type": "string"
+								},
+								"country": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "integer"
+										},
+										"name": {
+											"type": "string"
+										}
+									}
+								},
+								"managers": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "integer"
+											},
+											"name": {
+												"type": "string"
+											},
+											"nickname": {
+												"type": "null"
+											},
+											"dob": {
+												"type": "string"
+											},
+											"country": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "integer"
+													},
+													"name": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"home_score": {
+							"type": "integer"
+						},
+						"away_score": {
+							"type": "integer"
+						},
+						"match_status": {
+							"type": "string"
+						},
+						"match_status_360": {
+							"type": "string"
+						},
+						"last_updated": {
+							"type": "string"
+						},
+						"last_updated_360": {
+							"type": "string"
+						},
+						"metadata": {
+							"type": "object",
+							"properties": {
+								"data_version": {
+									"type": "string"
+								},
+								"shot_fidelity_version": {
+									"type": "string"
+								},
+								"xy_fidelity_version": {
+									"type": "string"
+								}
+							}
+						},
+						"match_week": {
+							"type": "integer"
+						},
+						"competition_stage": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								}
+							}
+						},
+						"stadium": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								},
+								"country": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "integer"
+										},
+										"name": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"referee": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								},
+								"country": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "integer"
+										},
+										"name": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_wc2022')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_ingest_events')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "lookup_matches",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "JsonSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "JsonReadSettings"
+								}
+							},
+							"dataset": {
+								"referenceName": "ds_adls_matches_json",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"firstRowOnly": false
+						}
+					},
+					{
+						"name": "foreach_match",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "lookup_matches",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('lookup_matches').output.value",
+								"type": "Expression"
+							},
+							"isSequential": true,
+							"activities": [
+								{
+									"name": "copy_event_to_landing",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "BinarySource",
+											"storeSettings": {
+												"type": "HttpReadSettings",
+												"requestMethod": "GET"
+											},
+											"formatSettings": {
+												"type": "BinaryReadSettings"
+											}
+										},
+										"sink": {
+											"type": "BinarySink",
+											"storeSettings": {
+												"type": "AzureBlobFSWriteSettings"
+											}
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "ds_http_statsbomb_binary",
+											"type": "DatasetReference",
+											"parameters": {
+												"relative_url": {
+													"value": "@concat('events/', string(item().match_id), '.json')",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "ds_adls_landing_binary",
+											"type": "DatasetReference",
+											"parameters": {
+												"folder_path": {
+													"value": "statsbomb/events",
+													"type": "Expression"
+												},
+												"file_name": {
+													"value": "@concat(string(item().match_id), '.json')",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/ds_adls_matches_json')]",
+				"[concat(variables('factoryId'), '/datasets/ds_http_statsbomb_binary')]",
+				"[concat(variables('factoryId'), '/datasets/ds_adls_landing_binary')]"
+			]
 		}
 	]
 }
