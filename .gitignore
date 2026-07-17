@@ -29,6 +29,10 @@ data/
 *.csv
 *.pbix
 
+# Portfolio deliverables (small curated Gold exports and Power BI report)
+!powerbi/*.csv
+!powerbi/*.pbix
+
 # Editors and OS
 .vscode/
 .idea/
