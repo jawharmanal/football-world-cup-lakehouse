@@ -1,0 +1,266 @@
+{
+	"name": "ds_adls_matches_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_wc2022",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "matches_43_106.json",
+				"folderPath": "statsbomb/matches",
+				"fileSystem": "landing"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"match_id": {
+					"type": "integer"
+				},
+				"match_date": {
+					"type": "string"
+				},
+				"kick_off": {
+					"type": "string"
+				},
+				"competition": {
+					"type": "object",
+					"properties": {
+						"competition_id": {
+							"type": "integer"
+						},
+						"country_name": {
+							"type": "string"
+						},
+						"competition_name": {
+							"type": "string"
+						}
+					}
+				},
+				"season": {
+					"type": "object",
+					"properties": {
+						"season_id": {
+							"type": "integer"
+						},
+						"season_name": {
+							"type": "string"
+						}
+					}
+				},
+				"home_team": {
+					"type": "object",
+					"properties": {
+						"home_team_id": {
+							"type": "integer"
+						},
+						"home_team_name": {
+							"type": "string"
+						},
+						"home_team_gender": {
+							"type": "string"
+						},
+						"home_team_group": {
+							"type": "string"
+						},
+						"country": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								}
+							}
+						},
+						"managers": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"id": {
+										"type": "integer"
+									},
+									"name": {
+										"type": "string"
+									},
+									"nickname": {
+										"type": "null"
+									},
+									"dob": {
+										"type": "string"
+									},
+									"country": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "integer"
+											},
+											"name": {
+												"type": "string"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"away_team": {
+					"type": "object",
+					"properties": {
+						"away_team_id": {
+							"type": "integer"
+						},
+						"away_team_name": {
+							"type": "string"
+						},
+						"away_team_gender": {
+							"type": "string"
+						},
+						"away_team_group": {
+							"type": "string"
+						},
+						"country": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								}
+							}
+						},
+						"managers": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"id": {
+										"type": "integer"
+									},
+									"name": {
+										"type": "string"
+									},
+									"nickname": {
+										"type": "null"
+									},
+									"dob": {
+										"type": "string"
+									},
+									"country": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "integer"
+											},
+											"name": {
+												"type": "string"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"home_score": {
+					"type": "integer"
+				},
+				"away_score": {
+					"type": "integer"
+				},
+				"match_status": {
+					"type": "string"
+				},
+				"match_status_360": {
+					"type": "string"
+				},
+				"last_updated": {
+					"type": "string"
+				},
+				"last_updated_360": {
+					"type": "string"
+				},
+				"metadata": {
+					"type": "object",
+					"properties": {
+						"data_version": {
+							"type": "string"
+						},
+						"shot_fidelity_version": {
+							"type": "string"
+						},
+						"xy_fidelity_version": {
+							"type": "string"
+						}
+					}
+				},
+				"match_week": {
+					"type": "integer"
+				},
+				"competition_stage": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer"
+						},
+						"name": {
+							"type": "string"
+						}
+					}
+				},
+				"stadium": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer"
+						},
+						"name": {
+							"type": "string"
+						},
+						"country": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"referee": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer"
+						},
+						"name": {
+							"type": "string"
+						},
+						"country": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
