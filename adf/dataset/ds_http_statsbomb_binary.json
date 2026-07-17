@@ -1,0 +1,23 @@
+{
+	"name": "ds_http_statsbomb_binary",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_http_statsbomb",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"relative_url": {
+				"type": "string",
+				"defaultValue": "competitions.json"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "@dataset().relative_url"
+			}
+		}
+	}
+}
